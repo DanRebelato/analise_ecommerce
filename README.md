@@ -4,7 +4,7 @@
 
 # 1. Problema de Negócio
 
-**⚠️ Este projeto utiliza um conjunto de dados simulados/modificados, sem correspondência com informações reais. O objetivo é exclusivamente educacional e de prática em análise de dados.**
+**⚠️ Este projeto utiliza um conjunto de dados simulados/modificados, sem correspondência com informações reais.**
 
 A ShopOnline é uma loja virtual que vende para todo o território nacional. Nos últimos meses, a diretoria notou oscilações no número de pedidos e no faturamento e quer entender melhor o que está acontecendo com o negócio antes de planejar os próximo período.
 
