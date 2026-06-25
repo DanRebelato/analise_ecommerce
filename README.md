@@ -4,7 +4,7 @@
 
 # 1. Problema de Negócio
 
-A LojaShopOnline é uma loja virtual que vende para todo o território nacional. Nos últimos meses, a diretoria notou oscilações no número de pedidos e no faturamento e quer entender melhor o que está acontecendo com o negócio antes de planejar os próximo período.
+A ShopOnline é uma loja virtual que vende para todo o território nacional. Nos últimos meses, a diretoria notou oscilações no número de pedidos e no faturamento e quer entender melhor o que está acontecendo com o negócio antes de planejar os próximo período.
 
 Para isso, a diretoria solicitou uma análise detalhada dos pedidos da loja para responder às seguintes perguntas:
 
