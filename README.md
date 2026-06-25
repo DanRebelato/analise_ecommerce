@@ -66,7 +66,7 @@ O notebook completo com todo o código está em [`analise_vendas.ipynb`](analise
 
 ## 5.2 Estado
 
-- São Paulo concentra, isoladamente, **43,1%** de todo o faturamento da BrasilShop.
+- São Paulo concentra, isoladamente, **43,1%** de todo o faturamento da ShopOnline.
 - Os 5 maiores estados (SP, RJ, MG, RS, SC) somam **~76%** das vendas — alta concentração geográfica, que representa tanto uma força (mercados consolidados) quanto um risco (dependência de poucas regiões).
 
 <img src="assets/faturamento_estado.png" width="1000">
@@ -106,7 +106,7 @@ O notebook completo com todo o código está em [`analise_vendas.ipynb`](analise
 
 ## 6.2 Resultado
 
-- O faturamento diário está mais relacionado ao volume de pedidos (r=0,74) do que ao ticket médio (r=0,53).
+- O faturamento diário está mais relacionado ao volume de pedidos (0,74) do que ao ticket médio (0,53).
 - Apesar disso, o crescimento de faturamento *ano a ano* mais recente foi puxado pelo ticket médio, já que o volume anual de pedidos vem encolhendo desde 2021.
 - O negócio é fortemente concentrado em São Paulo e apresenta sazonalidade clara por dia da semana e horário.
 
@@ -117,13 +117,13 @@ Para construir o modelo de Série Temporal (a nível mensal, já que o volume di
 ## 7.1 Encontrar a Sazonalidade + Erro
 
 1. A granularidade utilizada foi mensal (MM/AAAA).
-2. Utilizei uma média móvel centralizada com janela de 12 meses para suavizar a curva de faturamento.
-3. Dividi o faturamento pela média móvel para encontrar a Sazonalidade com Erro embutido, tirando a média por mês do calendário (Jan, Fev, ..., Dez).
+2. Utilizada uma média móvel centralizada com janela de 12 meses para suavizar a curva de faturamento.
+3. Dividido o faturamento pela média móvel para encontrar a Sazonalidade com erro embutido, tirando a média por mês do calendário (Jan, Fev, ..., Dez).
 
 ## 7.2 Encontrar a Tendência
 
-1. Desazonalizei o faturamento: Faturamento Real / Sazonalidade do mês.
-2. Treinei uma Regressão Linear sobre os últimos 24 meses desazonalizados para encontrar a tendência.
+1. Desazonalizado o faturamento: Faturamento Real / Sazonalidade do mês.
+2. Treinado modelo com Regressão Linear sobre os últimos 24 meses desazonalizados para encontrar a tendência.
 
 <img src="assets/previsao.png" width="1000">
 
@@ -141,38 +141,12 @@ Para construir o modelo de Série Temporal (a nível mensal, já que o volume di
 
 ## 8.1 Recomendações
 
-1. **Atacar a queda no volume de pedidos.** O faturamento recente cresce por ticket médio, não por volume — e o volume de pedidos é a variável mais correlacionada ao faturamento diário (r=0,74). Recuperar o número de pedidos (marketing, aquisição, recompra) tem potencial de acelerar ainda mais o crescimento.
+1. **Atacar a queda no volume de pedidos.** O faturamento recente cresce por ticket médio, não por volume e o volume de pedidos é a variável mais correlacionada ao faturamento diário (0,74). Recuperar o número de pedidos (marketing, aquisição, recompra) tem potencial de acelerar ainda mais o crescimento.
 2. **Reduzir a dependência de São Paulo.** Com 43% do faturamento concentrado em um único estado, investir em campanhas regionais para Sul e Nordeste (hoje com participação ainda baixa) pode diversificar a receita e reduzir o risco de concentração geográfica.
-3. **Reforçar o sábado com ações comerciais.** É o dia de pior desempenho relativo — promoções ou frete grátis específicos para sábado podem nivelar o faturamento ao longo da semana.
+3. **Reforçar o sábado com ações comerciais.** É o dia de pior desempenho relativo, promoções ou frete grátis específicos para sábado podem nivelar o faturamento ao longo da semana.
 4. **Aproveitar a janela de pico (10h–21h).** Concentrar comunicação, anúncios pagos e disponibilidade de atendimento nesse intervalo, já que é onde está a maior parte da demanda.
 5. **Monitorar o ticket médio como alavanca de curto prazo**, mas sem depender só dele: ele tem menor correlação com o faturamento diário (0,53) do que o volume de pedidos, funcionando melhor como complemento do que como motor principal de crescimento.
 
 # 9. Resultado Final
 
-A BrasilShop atravessou uma retração em 2022 e está em trajetória de recuperação desde 2024, puxada principalmente pelo aumento do ticket médio — enquanto o volume de pedidos ainda não voltou aos níveis de 2021. O negócio é fortemente concentrado em São Paulo e apresenta sazonalidade clara por dia da semana e horário. A previsão para junho de 2026 indica continuidade do crescimento, em torno de **R$ 3,65 milhões** (±16,5%). As recomendações práticas miram especificamente recuperar o volume de pedidos e diversificar a base geográfica, que são os pontos de maior risco e maior oportunidade identificados na análise.
-
-# 10. Como Reproduzir
-
-```bash
-git clone <url-deste-repositorio>
-cd <nome-do-repositorio>
-pip install -r requirements.txt
-jupyter notebook analise_vendas.ipynb
-```
-
-# 11. Estrutura do Repositório
-
-```
-.
-├── analise_vendas.ipynb      # Notebook completo com todo o código da análise
-├── data/
-│   └── registros_pedidos.csv # Base de dados utilizada
-├── images/                   # Gráficos exportados do notebook
-├── requirements.txt          # Dependências do projeto
-└── README.md
-```
-
----
-
-*Projeto desenvolvido como portfólio em Análise de Dados com Python.*
-
+A ShopOnline atravessou uma retração em 2022 e está em trajetória de recuperação desde 2024, puxada principalmente pelo aumento do ticket médio — enquanto o volume de pedidos ainda não voltou aos níveis de 2021. O negócio é fortemente concentrado em São Paulo e apresenta sazonalidade clara por dia da semana e horário. A previsão para junho de 2026 indica continuidade do crescimento, em torno de **R$ 3,65 milhões** (±16,5%). As recomendações práticas miram especificamente recuperar o volume de pedidos e diversificar a base geográfica, que são os pontos de maior risco e maior oportunidade identificados na análise.
