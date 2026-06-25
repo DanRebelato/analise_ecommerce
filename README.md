@@ -62,21 +62,21 @@ O notebook completo com todo o código está em [`analise_vendas.ipynb`](analise
 - Os 5 primeiros meses de 2026 somam **R$ 20,6 milhões** — se mantido o ritmo, 2026 fecharia como o melhor ano da série histórica.
 - Importante: o **número de pedidos vem caindo** ano a ano desde 2021 (17.345 pedidos em 2021), enquanto o **ticket médio sobe** (de R$ 2.068 em 2021 para a faixa de R$ 2.400–2.850 nos anos seguintes). O crescimento recente de faturamento é puxado por ticket médio maior, não por mais pedidos.
 
-<img src="assets/faturamento_mensal.png" width="800">
+<img src="assets/faturamento_mensal.png" width="1000">
 
 ## 5.2 Estado
 
 - São Paulo concentra, isoladamente, **43,1%** de todo o faturamento da BrasilShop.
 - Os 5 maiores estados (SP, RJ, MG, RS, SC) somam **~76%** das vendas — alta concentração geográfica, que representa tanto uma força (mercados consolidados) quanto um risco (dependência de poucas regiões).
 
-![faturamento por estado](images/faturamento_estado.png)
+<img src="assets/faturamento_estado.png" width="1000">
 
 ## 5.3 Sazonalidade
 
 - O **sábado** é o dia de menor faturamento da semana (queda de cerca de 25% frente aos dias úteis); o domingo já recupera parte do movimento.
 - O volume de pedidos cresce a partir das 8h, mantém-se em um platô elevado entre 10h e 21h, e cai abruptamente após as 22h.
 
-![sazonalidade](images/sazonalidade.png)
+<img src="assets/sazonalidade.png" width="1000">
 
 # 6. Análise Diagnóstica
 
@@ -90,7 +90,7 @@ O notebook completo com todo o código está em [`analise_vendas.ipynb`](analise
 
 **Aceita parcialmente:** correlação de **0,53** entre ticket médio e faturamento diário — existe relação, mas mais fraca do que a do volume de pedidos.
 
-![correlação](images/correlacao.png)
+<img src="assets/correlacao.png" width="1000">
 
 ### H3. O crescimento de faturamento recente vem do aumento no número de pedidos.
 
@@ -125,7 +125,7 @@ Para construir o modelo de Série Temporal (a nível mensal, já que o volume di
 1. Desazonalizei o faturamento: Faturamento Real / Sazonalidade do mês.
 2. Treinei uma Regressão Linear sobre os últimos 24 meses desazonalizados para encontrar a tendência.
 
-![previsão](images/previsao.png)
+<img src="assets/previsao.png" width="1000">
 
 ## 7.3 Resultado Final
 
