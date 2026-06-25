@@ -62,7 +62,7 @@ O notebook completo com todo o código está em [`analise_vendas.ipynb`](analise
 - Os 5 primeiros meses de 2026 somam **R$ 20,6 milhões** — se mantido o ritmo, 2026 fecharia como o melhor ano da série histórica.
 - Importante: o **número de pedidos vem caindo** ano a ano desde 2021 (17.345 pedidos em 2021), enquanto o **ticket médio sobe** (de R$ 2.068 em 2021 para a faixa de R$ 2.400–2.850 nos anos seguintes). O crescimento recente de faturamento é puxado por ticket médio maior, não por mais pedidos.
 
-<img src="assets/faturamento_mensal.jpg" width="500">
+<img src="assets/faturamento_mensal.png" width="500">
 
 ## 5.2 Estado
 
