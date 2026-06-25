@@ -1,6 +1,6 @@
 # Análise de Dados - BrasilShop
 
-<img src="assets/Capa.jpg" width="900">
+<img src="assets/Capa.jpg" width="800">
 
 # 1. Problema de Negócio
 
