@@ -1,6 +1,7 @@
 # Análise de Dados - BrasilShop
 
-!(assets/Capa.png)
+![Dashboard](assets/capa.png)
+
 
 # 1. Problema de Negócio
 
