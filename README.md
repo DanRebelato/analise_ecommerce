@@ -1,7 +1,7 @@
 # Análise de Dados - BrasilShop
 
 ![capa](assets/Capa.jpg)
-<img src="assets/Capa.jpg" width="800">
+<img src="assets/Capa.jpg" width="1200">
 
 # 1. Problema de Negócio
 
