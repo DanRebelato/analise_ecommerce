@@ -1,4 +1,4 @@
-# Análise de Dados - BrasilShop
+# Análise de Dados - Ecommerce
 
 <img src="assets/Capa.jpg" width="800">
 
