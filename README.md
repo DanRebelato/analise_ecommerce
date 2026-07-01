@@ -6,13 +6,13 @@
 
 > ⚠️ Este projeto utiliza um conjunto de dados simulados/modificados, sem correspondência com informações reais.
 
-A ShopOnline é uma loja virtual que vende para todo o território nacional. Nos últimos meses, a diretoria notou oscilações no número de pedidos e no faturamento e quer entender melhor o que está acontecendo com o negócio antes de planejar os próximo período.
+A ShopOnline é uma loja virtual que vende para todo o território nacional. Nos últimos meses, a diretoria notou oscilações no número de pedidos e no faturamento e quer entender melhor o que está acontecendo com o negócio antes de planejar o próximo trimestre.
 
 Para isso, a diretoria solicitou uma análise detalhada dos pedidos da loja para responder às seguintes perguntas:
 
 1. Como está a saúde do negócio, no geral?
 2. Existe algum motivo do porquê o faturamento sobe ou cai?
-3. Previsão de faturamento para o próximo mês (Junho de 2026).
+3. Previsão de faturamento de Junho a Dezembro de 2026.
 4. Recomendações para alavancar ainda mais o negócio.
 
 # 2. Ferramentas Utilizadas
@@ -126,29 +126,44 @@ Para construir o modelo de Série Temporal (a nível mensal, já que o volume di
 
 1. Desazonalizado o faturamento: Faturamento Real / Sazonalidade do mês.
 2. Treinado modelo com Regressão Linear sobre os últimos 24 meses desazonalizados para encontrar a tendência.
+3. Projetada a mesma reta de tendência 7 passos à frente (1 para cada mês de junho a dezembro/2026), aplicando a sazonalidade correspondente a cada mês do calendário.
 
 <img src="assets/previsao.png" width="1000">
 
 ## 7.3 Resultado Final
 
-- Previsão = Tendência × Sazonalidade do mês
-- **Previsão de faturamento para Junho de 2026: R$ 3.650.157,08**
+- Previsão = Tendência × Sazonalidade do mês, calculada mês a mês de junho a dezembro/2026.
+  
+| Mês | Previsão | Intervalo (±18,2%) |
+| --- | --- | --- |
+| Jun/2026 | R$ 3.650.157,08 | R$ 2.984.266,65 a R$ 4.316.047,50 |
+| Jul/2026 | R$ 3.830.624,00 | R$ 3.131.811,38 a R$ 4.529.436,61 |
+| Ago/2026 | R$ 3.970.095,04 | R$ 3.245.839,02 a R$ 4.694.351,07 |
+| Set/2026 | R$ 3.445.750,59 | R$ 2.817.149,61 a R$ 4.074.351,57 |
+| Out/2026 | R$ 3.461.524,82 | R$ 2.830.046,18 a R$ 4.093.003,46 |
+| Nov/2026 | R$ 5.100.743,09 | R$ 4.170.225,33 a R$ 6.031.260,84 |
+| Dez/2026 | R$ 4.799.153,50 | R$ 3.923.654,09 a R$ 5.674.652,90 |
+| **Total (Jun–Dez)** | **R$ 28.258.048,11** | **R$ 23.102.992,27 a R$ 33.413.103,95** |
+
+- Novembro e dezembro aparecem como os meses de maior faturamento previsto, puxados pela sazonalidade de fim de ano (Black Friday e Natal).
 
 ### 7.3.1 Erro do Modelo
 
-- MAPE (últimos 6 meses, validação): **16,5%**
-- Logo, a previsão de faturamento tem um erro embutido de 16,5% para mais ou menos. As vendas devem ficar entre o intervalo de **R$ 3.048.146,28** e **R$ 4.252.167,88**.
+- MAPE (últimos 12 meses, validação): **18,2%**
+- O erro passou a ser medido sobre 12 meses para cobrir um ciclo sazonal completo, a janela mais longa expõe o modelo a mais variação sazonal, em vez de só aos meses recentes "mais fáceis".
+- Logo, cada previsão mensal, e também o total do período, tem um erro embutido de aproximadamente 18,2% para mais ou menos, conforme os intervalos na tabela acima.
 
 # 8. Análise Prescritiva
 
 ## 8.1 Recomendações
 
-1. **Atacar a queda no volume de pedidos.** O faturamento recente cresce por ticket médio, não por volume e o volume de pedidos é a variável mais correlacionada ao faturamento diário (0,74). Recuperar o número de pedidos (marketing, aquisição, recompra) tem potencial de acelerar ainda mais o crescimento.
+1. **Atacar a queda no volume de pedidos.** O faturamento recente cresce por ticket médio, não por volume — e o volume de pedidos é a variável mais correlacionada ao faturamento diário (r=0,74). Recuperar o número de pedidos (marketing, aquisição, recompra) tem potencial de acelerar ainda mais o crescimento.
 2. **Reduzir a dependência de São Paulo.** Com 43% do faturamento concentrado em um único estado, investir em campanhas regionais para Sul e Nordeste (hoje com participação ainda baixa) pode diversificar a receita e reduzir o risco de concentração geográfica.
-3. **Reforçar o sábado com ações comerciais.** É o dia de pior desempenho relativo, promoções ou frete grátis específicos para sábado podem nivelar o faturamento ao longo da semana.
+3. **Reforçar o sábado com ações comerciais.** É o dia de pior desempenho relativo — promoções ou frete grátis específicos para sábado podem nivelar o faturamento ao longo da semana.
 4. **Aproveitar a janela de pico (10h–21h).** Concentrar comunicação, anúncios pagos e disponibilidade de atendimento nesse intervalo, já que é onde está a maior parte da demanda.
 5. **Monitorar o ticket médio como alavanca de curto prazo**, mas sem depender só dele: ele tem menor correlação com o faturamento diário (0,53) do que o volume de pedidos, funcionando melhor como complemento do que como motor principal de crescimento.
+6. **Preparar estoque, logística e time comercial para o pico de novembro–dezembro.** A previsão aponta novembro e dezembro/2026 como os meses de maior faturamento do semestre (Black Friday e Natal) — vale antecipar compras de estoque, reforço de equipe e capacidade de entrega para não perder vendas por ruptura ou atraso.
 
 # 9. Resultado Final
 
-A ShopOnline atravessou uma retração em 2022 e está em trajetória de recuperação desde 2024, puxada principalmente pelo aumento do ticket médio — enquanto o volume de pedidos ainda não voltou aos níveis de 2021. O negócio é fortemente concentrado em São Paulo e apresenta sazonalidade clara por dia da semana e horário. A previsão para junho de 2026 indica continuidade do crescimento, em torno de **R$ 3,65 milhões** (±16,5%). As recomendações práticas miram especificamente recuperar o volume de pedidos e diversificar a base geográfica, que são os pontos de maior risco e maior oportunidade identificados na análise.
+A ShopOnline atravessou uma retração em 2022 e está em trajetória de recuperação desde 2024, puxada principalmente pelo aumento do ticket médio — enquanto o volume de pedidos ainda não voltou aos níveis de 2021. O negócio é fortemente concentrado em São Paulo e apresenta sazonalidade clara por dia da semana e horário. A previsão para o segundo semestre de 2026 (junho a dezembro) indica continuidade do crescimento, somando aproximadamente **R$ 28,26 milhões** no período (±18,2%), com novembro e dezembro se destacando como os meses de maior faturamento por conta da sazonalidade de fim de ano. As recomendações práticas miram especificamente recuperar o volume de pedidos, diversificar a base geográfica e preparar a operação para o pico de fim de ano, que são os pontos de maior risco e maior oportunidade identificados na análise.
