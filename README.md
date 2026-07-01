@@ -128,7 +128,7 @@ Para construir o modelo de Série Temporal (a nível mensal, já que o volume di
 2. Treinado modelo com Regressão Linear sobre os últimos 24 meses desazonalizados para encontrar a tendência.
 3. Projetada a mesma reta de tendência 7 passos à frente (1 para cada mês de junho a dezembro/2026), aplicando a sazonalidade correspondente a cada mês do calendário.
 
-<img src="assets/previsao.png" width="1000">
+<img src="assets/preview.png" width="1000">
 
 ## 7.3 Resultado Final
 
